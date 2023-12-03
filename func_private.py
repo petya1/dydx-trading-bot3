@@ -12,7 +12,7 @@ def place_market_order(client, market, side, size, price, reduce_only):
 
     # Get expiration time
     server_time = client.public.get_time()
-    print(server_time.data["iso"])
+    # print(server_time.data["iso"])
     expiration = datetime.fromisoformat(server_time.data["iso"]) + timedelta(seconds=90)
 
 
@@ -74,7 +74,7 @@ def abort_all_open_positions(client):
             tick_size = markets["markets"][market]["tickSize"]
             accept_price = format_number(accept_price, tick_size)
 
-            # print(market, side)
+            print(market, side)
             # Place order to close
             order = place_market_order(
                 client,
